@@ -1,0 +1,325 @@
+<html>
+<head>
+<title>TestNG:  All Test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>All Test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>0/4/0</td>
+</tr><tr>
+<td>Started on:</td><td>Mon May 11 11:57:00 PDT 2020</td>
+</tr>
+<tr><td>Total time:</td><td>219 seconds (219909 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='cucumberoptions.TestRunner.runScenario()'><b>runScenario</b><br>Test class: cucumberoptions.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "", "by using this http://automationpractice.com/index.php"<br/>
+<a href="#Output-1544257472" onClick='toggleBox("Output-1544257472", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1544257472" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1544257472">
+<div "result">Click on Sign In2 Button (PASSED : 3s)</div><br/>
+<div "result">Create an account box (FAILED : 40s)</div><br/>
+<div "result">Select the below data and Click on Register button (SKIPPED)</div><br/>
+<div "result">Validate that you are successfully registered (SKIPPED)</div><br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: element not found
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at resources.TestBase.WaitVisibilityOf(TestBase.java:80)
+	at pageObjects.automationpracticePage.CreateAnAccount(automationpracticePage.java:107)
+	at stepDefinations.automationparcRegisteration.create_an_account_box(automationparcRegisteration.java:30)
+	at ?.Create an account box(src/test/java/features/BDDassignment2.feature:7)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1544257472", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1544257472'><pre>java.lang.AssertionError: element not found
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at resources.TestBase.WaitVisibilityOf(TestBase.java:80)
+	at pageObjects.automationpracticePage.CreateAnAccount(automationpracticePage.java:107)
+	at stepDefinations.automationparcRegisteration.create_an_account_box(automationparcRegisteration.java:30)
+	at ?.Create an account box(src/test/java/features/BDDassignment2.feature:7)
+</pre></div></td>
+<td>58</td>
+<td>cucumberoptions.TestRunner@3d121db3</td></tr>
+<tr>
+<td title='cucumberoptions.TestRunner.runScenario()'><b>runScenario</b><br>Test class: cucumberoptions.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "crreation of multiple task", "New task creation"<br/>
+<a href="#Output-692141752" onClick='toggleBox("Output-692141752", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-692141752" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-692141752">
+<div "result">user logged in to CRM Application (PASSED : 15s)</div><br/>
+<div "result">user mouse hover to &quot;Cases&quot; and select &quot;New Case&quot; (PASSED : 6s)</div><br/>
+<div "result">User enter the &quot;Mr&quot;,&quot;Enquiring&quot;,&quot;14&#x2F;07&#x2F;2020&quot; and &quot;Open&quot;,&quot;Complaint&quot;, &quot;Low&quot;,&quot;diwakar kumar&quot;,&quot;yes&quot;,&quot;diwak&quot; details for task creation (FAILED : 20s)</div><br/>
+<div "result">verify task created (SKIPPED)</div><br/>
+</div>
+</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;input[name=sequence]&quot;}
+  (Session info: chrome=81.0.4044.138)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;PC&apos;, ip: &apos;192.168.43.118&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_221&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 81.0.4044.69 (6813546031a4b..., userDataDir: C:\Users\Admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49475}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 84219c34c252f9fa64eee8e75db48bb7
+*** Element info: {Using=css selector, value=input[name=sequence]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy19.getAttribute(Unknown Source)
+	at pageObjects.crmnewTaskPage.getTaskNo(crmnewTaskPage.java:55)
+	at pageObjects.crmnewTaskPage.newTaskCreation(crmnewTaskPage.java:169)
+	at stepDefinations.crmnewTask.user_enter_the_and_details_for_task_creation(crmnewTask.java:36)
+	at ?.User enter the &quot;Mr&quot;,&quot;Enquiring&quot;,&quot;14/07/2020&quot; and &quot;Open&quot;,&quot;Complaint&quot;, &quot;Low&quot;,&quot;diwakar kumar&quot;,&quot;yes&quot;,&quot;diwak&quot; details for task creation(src/test/java/features/CRMTaskCreation.feature:7)
+... Removed 4 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace692141752", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace692141752'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;input[name=sequence]&quot;}
+  (Session info: chrome=81.0.4044.138)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;PC&apos;, ip: &apos;192.168.43.118&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_221&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 81.0.4044.69 (6813546031a4b..., userDataDir: C:\Users\Admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49475}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 84219c34c252f9fa64eee8e75db48bb7
+*** Element info: {Using=css selector, value=input[name=sequence]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy19.getAttribute(Unknown Source)
+	at pageObjects.crmnewTaskPage.getTaskNo(crmnewTaskPage.java:55)
+	at pageObjects.crmnewTaskPage.newTaskCreation(crmnewTaskPage.java:169)
+	at stepDefinations.crmnewTask.user_enter_the_and_details_for_task_creation(crmnewTask.java:36)
+	at ?.User enter the &quot;Mr&quot;,&quot;Enquiring&quot;,&quot;14/07/2020&quot; and &quot;Open&quot;,&quot;Complaint&quot;, &quot;Low&quot;,&quot;diwakar kumar&quot;,&quot;yes&quot;,&quot;diwak&quot; details for task creation(src/test/java/features/CRMTaskCreation.feature:7)
+</pre></div></td>
+<td>55</td>
+<td>cucumberoptions.TestRunner@3d121db3</td></tr>
+<tr>
+<td title='cucumberoptions.TestRunner.runScenario()'><b>runScenario</b><br>Test class: cucumberoptions.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "crreation of multiple task", "New task creation"<br/>
+<a href="#Output-1532845812" onClick='toggleBox("Output-1532845812", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1532845812" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1532845812">
+<div "result">user logged in to CRM Application (PASSED : 15s)</div><br/>
+<div "result">user mouse hover to &quot;Cases&quot; and select &quot;New Case&quot; (PASSED : 6s)</div><br/>
+<div "result">User enter the &quot;Miss&quot;,&quot;Enquiring&quot;,&quot;14&#x2F;08&#x2F;2020&quot; and &quot;Open&quot;,&quot;Complaint&quot;, &quot;Low&quot;,&quot;diwakar kumar&quot;,&quot;yes&quot;,&quot;diwak&quot; details for task creation (FAILED : 20s)</div><br/>
+<div "result">verify task created (SKIPPED)</div><br/>
+</div>
+</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;input[name=sequence]&quot;}
+  (Session info: chrome=81.0.4044.138)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;PC&apos;, ip: &apos;192.168.43.118&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_221&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 81.0.4044.69 (6813546031a4b..., userDataDir: C:\Users\Admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49528}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 74c91a50cff115a7beca187e0fed0096
+*** Element info: {Using=css selector, value=input[name=sequence]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy19.getAttribute(Unknown Source)
+	at pageObjects.crmnewTaskPage.getTaskNo(crmnewTaskPage.java:55)
+	at pageObjects.crmnewTaskPage.newTaskCreation(crmnewTaskPage.java:169)
+	at stepDefinations.crmnewTask.user_enter_the_and_details_for_task_creation(crmnewTask.java:36)
+	at ?.User enter the &quot;Miss&quot;,&quot;Enquiring&quot;,&quot;14/08/2020&quot; and &quot;Open&quot;,&quot;Complaint&quot;, &quot;Low&quot;,&quot;diwakar kumar&quot;,&quot;yes&quot;,&quot;diwak&quot; details for task creation(src/test/java/features/CRMTaskCreation.feature:7)
+... Removed 4 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1532845812", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1532845812'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;input[name=sequence]&quot;}
+  (Session info: chrome=81.0.4044.138)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;PC&apos;, ip: &apos;192.168.43.118&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_221&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 81.0.4044.69 (6813546031a4b..., userDataDir: C:\Users\Admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49528}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 74c91a50cff115a7beca187e0fed0096
+*** Element info: {Using=css selector, value=input[name=sequence]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy19.getAttribute(Unknown Source)
+	at pageObjects.crmnewTaskPage.getTaskNo(crmnewTaskPage.java:55)
+	at pageObjects.crmnewTaskPage.newTaskCreation(crmnewTaskPage.java:169)
+	at stepDefinations.crmnewTask.user_enter_the_and_details_for_task_creation(crmnewTask.java:36)
+	at ?.User enter the &quot;Miss&quot;,&quot;Enquiring&quot;,&quot;14/08/2020&quot; and &quot;Open&quot;,&quot;Complaint&quot;, &quot;Low&quot;,&quot;diwakar kumar&quot;,&quot;yes&quot;,&quot;diwak&quot; details for task creation(src/test/java/features/CRMTaskCreation.feature:7)
+</pre></div></td>
+<td>57</td>
+<td>cucumberoptions.TestRunner@3d121db3</td></tr>
+<tr>
+<td title='cucumberoptions.TestRunner.runScenario()'><b>runScenario</b><br>Test class: cucumberoptions.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "crreation of multiple task", "New task creation"<br/>
+<a href="#Output-271987184" onClick='toggleBox("Output-271987184", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-271987184" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-271987184">
+<div "result">user logged in to CRM Application (PASSED : 8s)</div><br/>
+<div "result">user mouse hover to &quot;Cases&quot; and select &quot;New Case&quot; (PASSED : 6s)</div><br/>
+<div "result">User enter the &quot;Mrs&quot;,&quot;Enquiring&quot;,&quot;15&#x2F;01&#x2F;2021&quot; and &quot;Closed&quot;,&quot;Enquiry&quot;, &quot;High&quot;,&quot;diwakar kumar&quot;,&quot;yes&quot;,&quot;diwak&quot; details for task creation (FAILED : 20s)</div><br/>
+<div "result">verify task created (SKIPPED)</div><br/>
+</div>
+</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;input[name=sequence]&quot;}
+  (Session info: chrome=81.0.4044.138)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;PC&apos;, ip: &apos;192.168.43.118&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_221&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 81.0.4044.69 (6813546031a4b..., userDataDir: C:\Users\Admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49577}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: b0279f1c2b22d7e36608692f0c7dd5f9
+*** Element info: {Using=css selector, value=input[name=sequence]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy19.getAttribute(Unknown Source)
+	at pageObjects.crmnewTaskPage.getTaskNo(crmnewTaskPage.java:55)
+	at pageObjects.crmnewTaskPage.newTaskCreation(crmnewTaskPage.java:169)
+	at stepDefinations.crmnewTask.user_enter_the_and_details_for_task_creation(crmnewTask.java:36)
+	at ?.User enter the &quot;Mrs&quot;,&quot;Enquiring&quot;,&quot;15/01/2021&quot; and &quot;Closed&quot;,&quot;Enquiry&quot;, &quot;High&quot;,&quot;diwakar kumar&quot;,&quot;yes&quot;,&quot;diwak&quot; details for task creation(src/test/java/features/CRMTaskCreation.feature:7)
+... Removed 4 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace271987184", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace271987184'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;input[name=sequence]&quot;}
+  (Session info: chrome=81.0.4044.138)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;PC&apos;, ip: &apos;192.168.43.118&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_221&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 81.0.4044.69 (6813546031a4b..., userDataDir: C:\Users\Admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49577}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: b0279f1c2b22d7e36608692f0c7dd5f9
+*** Element info: {Using=css selector, value=input[name=sequence]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy19.getAttribute(Unknown Source)
+	at pageObjects.crmnewTaskPage.getTaskNo(crmnewTaskPage.java:55)
+	at pageObjects.crmnewTaskPage.newTaskCreation(crmnewTaskPage.java:169)
+	at stepDefinations.crmnewTask.user_enter_the_and_details_for_task_creation(crmnewTask.java:36)
+	at ?.User enter the &quot;Mrs&quot;,&quot;Enquiring&quot;,&quot;15/01/2021&quot; and &quot;Closed&quot;,&quot;Enquiry&quot;, &quot;High&quot;,&quot;diwakar kumar&quot;,&quot;yes&quot;,&quot;diwak&quot; details for task creation(src/test/java/features/CRMTaskCreation.feature:7)
+</pre></div></td>
+<td>47</td>
+<td>cucumberoptions.TestRunner@3d121db3</td></tr>
+</table><p>
+</body>
+</html>
