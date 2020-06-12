@@ -16,7 +16,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import cucumber.api.DataTable;
+import io.cucumber.datatable.DataTable;
+
  
 
 
@@ -67,7 +68,7 @@ public class hotelBookingAirAsia {
 		}
 	}
 	public void sourceAndDestionationSelection(DataTable dt) throws InterruptedException {
-	List<List<String>>l=dt.raw();
+	List<List<String>>l=dt.asLists(String.class);
 	String leavingFrom=l.get(1).get(0);
 	String 	goingTo=l.get(1).get(1);
 		txtboxleavingFrom.sendKeys(leavingFrom);
@@ -129,7 +130,7 @@ public class hotelBookingAirAsia {
 		
 	}
 	public void SelectDeparture(DataTable vdt) {
-		List<List<String>> ls=vdt.raw();
+		List<List<String>> ls=vdt.asLists(String.class);
 		String Depart=ls.get(0).get(0);
 		Select s=new Select(Departure);
 		s.selectByValue(Depart);

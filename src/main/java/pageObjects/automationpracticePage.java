@@ -3,6 +3,8 @@ package pageObjects;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,16 +15,19 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import cucumber.api.DataTable;
+import io.cucumber.datatable.DataTable;
 //import cucumber.api.DataTable;
 //import io.cucumber.datatable.DataTable;
 //import cucumber.api.DataTable;
 import resources.TestBase;
 import utilities.excelUtilities;
+import utilities.logger;
 
 
 
 public class automationpracticePage extends TestBase{
+final static Logger log=logger.getLogger(automationpracticePage.class);
+
 	public WebDriver driver;
 	public String alias="Home";
 	@FindBy(xpath="//a[@class='login']")
@@ -83,6 +88,7 @@ public class automationpracticePage extends TestBase{
 		 
 		}
 	public void naviagteToPracticeURL() {
+		log.info("*******************aautomationpractice url stared***************************");
 		driver.get(p.getProperty("automationpracticeURL"));
 	}
 	public void SignIn() {
@@ -94,6 +100,7 @@ public class automationpracticePage extends TestBase{
 		}
 		catch(Exception e){
 			Assert.assertFalse("account already exist", true);
+			
 		}
 	}
 	public void CreateAnAccount(DataTable dt) {
@@ -104,7 +111,7 @@ public class automationpracticePage extends TestBase{
 			 emailpassed=map.get(0).get("email");
 			txtEmailAddress.sendKeys(emailpassed);
 			btnCreateAccount.click();
-			WaitVisibilityOf(txtAddressLastName, 8);
+			//WaitVisibilityOf(txtAddressLastName, 8);
 			//WebDriverWait wait=new WebDriverWait(driver,20);
 			//wait.until(ExpectedConditions.elementToBeClickable(txtAddressLastName));
 			//wait.until(ExpectedConditions.visibilityOf(txtAddressLastName));

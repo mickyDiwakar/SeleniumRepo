@@ -70,6 +70,7 @@ public class fso {
 	// read char by char
 		BufferedReader readchar=new BufferedReader(new FileReader(str));
 		int i=0;
+		
 		String s="";
 		while((i=readchar.read())!=-1) {
 			s=s+(char)i;
@@ -78,7 +79,7 @@ public class fso {
 		System.out.println("the string is"+s);
 		//========================
 		
-				
+			
 	}
 	
 }

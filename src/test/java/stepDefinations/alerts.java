@@ -15,17 +15,17 @@ import org.testng.Assert;
 import org.testng.Reporter;
 
 import com.google.common.collect.Maps;
-import com.mavenproj.CRMHomeMethods;
+//import com.mavenproj.CRMHomeMethods;
 
-import cucumber.api.DataTable;
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 //import io.cucumber.datatable.DataTable;
 
 //import cucumber.api.DataTable;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+
 
 import resources.TestBase;
  
@@ -118,7 +118,8 @@ public class alerts extends TestBase{
 
 	    @And("^Add new Alert$")
 	    public void add_new_alert(DataTable dt) throws Throwable {
-	    	for(Map<String,String> m:dt.asMaps(String.class,String.class)) {
+	    	
+	    	for(Map<String, String> m:dt.asMaps()) {
 	    		WebElement newAlert= driver.findElement(By.xpath("//input[@value='New Alert']"));
 				wait.until(ExpectedConditions.elementToBeClickable(newAlert));
 				newAlert.click();

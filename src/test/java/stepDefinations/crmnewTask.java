@@ -1,8 +1,9 @@
 package stepDefinations;
 
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import pageObjects.CaseCreationpage;
 import pageObjects.contactlookup;
 import pageObjects.crmnewTaskPage;
@@ -11,6 +12,7 @@ import pageObjects.loginToCrm;
 import resources.TestBase;
 
 public class crmnewTask extends TestBase{
+	
 	  crmnewTaskPage crmnewtaskpageobj;
 	  loginToCrm logintocrmpageobj;
 	  landingpageCrm landingtoCrmHomeObj;

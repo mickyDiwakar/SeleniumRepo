@@ -1,38 +1,54 @@
 package stepDefinations;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-import static org.hamcrest.Matchers.*;
+import  static org.hamcrest.Matchers.*;
 
-import org.hamcrest.core.IsEqual;
+
 import org.testng.Assert;
 
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import gherkin.deps.com.google.gson.JsonArray;
-import gherkin.deps.com.google.gson.JsonObject;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.http.Method;
-import io.restassured.internal.ResponseSpecificationImpl.HamcrestAssertionClosure;
+
+import io.restassured.matcher.ResponseAwareMatcher;
 import io.restassured.path.json.JsonPath;
 import  io.restassured.response.Response;
 import io.restassured.response.ResponseBodyExtractionOptions;
 import io.restassured.response.ValidatableResponse;
 import jdk.nashorn.internal.ir.RuntimeNode.Request;
+import restApiclass.Authrizationrequest;
+import restApiclass.Book;
+import restApiclass.Books;
+import restApiclass.Weather;
+import restApiclass.weatherLondon;
+
 
 
 public class restAssuredStepdefGet{
 	Response response;
+	//public static Books books;
     @Given("^URI is \"([^\"]*)\"$")
     public void uri_is_something(String strArg1) throws Throwable {
-        RestAssured.baseURI=strArg1;
+    	RestAssured.baseURI=strArg1;
         
     }
 
@@ -56,6 +72,7 @@ public class restAssuredStepdefGet{
     //response.then().assertThat().body("City", hasItem("Bengaluru")) ; 
      // String s= response.getBody().asString();
        System.out.println(s);
+       
     }
     
     
@@ -153,7 +170,135 @@ public class restAssuredStepdefGet{
     	}
        System.out.println(response.then().extract().asString());
     }
-
     
+   
+    @Given("url is {string}")
+    public void gettesting(String s) throws JsonMappingException, JsonProcessingException {
+    	RestAssured.baseURI=s;
+    	Authrizationrequest authreq=new Authrizationrequest("TOOLSQA-Test","Test@@123");
+    	
+   
+  Book[] book=RestAssured.given().headers("Content-Type","application/Json")
+    	.accept(ContentType.JSON).get("/BookStore/v1/Books").jsonPath().
+    	getObject("books", Book[].class);
+ //below code will use to get list of [obj1,obj2] 
+ // List<Object> obj=response.getBody().jsonPath().getList("");
+
+  //Books b=new Books(Arrays.asList(str1));
+		/*
+		 * Book[] book1= RestAssured.given().headers("Content-Type","application/Json")
+		 * .accept(ContentType.JSON).get("/BookStore/v1/Books").getBody().as(Book[].
+		 * class); System.out.println(book1);
+		 */
+/* for(int i=0;i<book.length;i++) {
+	String isbn= book[i].getIsbn();
+	String title=book[i].getTitle();
+	System.out.println(isbn+title);
+ }*/
+ // Books b=new Books(Arrays.asList(book));
+  
+ObjectMapper mapper=new ObjectMapper();
+String resbody=RestAssured.given().headers("Content-Type","application/Json")
+.accept(ContentType.JSON).get("/BookStore/v1/Books").getBody().asString();
+//Book[] book3=mapper.readValue(resbody, Books.class).getBooks();
+Books book3= mapper.readValue(resbody, Books.class);
+Book[] bokk=book3.getBooks();
+for(Book b:bokk) {
+	System.out.println(b.getIsbn());
+}
+//System.out.println(book3[].getIsbn());
+//Book boo4=mapper.readValue(resbody, Book.class);
+
+    	 //deserialise the resposne body into book class
+    //	ObjectMapper obj=new ObjectMapper();
+    //	obj.writerWithDefaultPrettyPrinter().writeValueAsString(value)
+    	//System.out.println(str1);
+    	//String str= response.getBody().asString();
+    	//System.out.println(str1);
+   //System.out.println(str);
+    
+    	 
+    }
+
+    @Given("the End point Url is {string}")
+    public void getoperationonLOndonwheather(String arg) throws JsonMappingException, JsonProcessingException {
+    	RestAssured.baseURI=arg;
+    	response=RestAssured.given().header("Content-Type","appliation/json").accept(ContentType.JSON)
+    	.pathParam("id", "2.5").queryParam("q", "London").queryParam("appid", "2b1fd2d7f77ccf1b7de9b441571b39b8")
+    	.get("/data/{id}/weather");
+    	//response.getBody().jsonPath()
+    
+    	String s=response.getBody().asString();
+    	System.out.println(s);
+    	//fetching this kind of  {"coord": {
+       // "lon": -0.13,
+       // "lat": 51.51
+     // },
+    	
+    	
+    	Map<String,Object>map=response.jsonPath().get("coord");
+    	response.then().log().all();
+		/*
+		 * fetching aray or list type "weather": [ { "id": 300, "main": "Drizzle",
+		 * "description": "light intensity drizzle", "icon": "09d" } ],
+		 */
+    	List<Map<String,Object>>wherther=response.jsonPath().get("weather");
+    	System.out.println(wherther.get(0).get("id"));
+    	//Now using pojo same issue trying to fix
+    	
+    	weatherLondon wl=RestAssured.given().header("Content-Type","appliation/json").accept(ContentType.JSON)
+    	.pathParam("id", "2.5").queryParam("q", "London").queryParam("appid", "2b1fd2d7f77ccf1b7de9b441571b39b8")
+    	.get("/data/{id}/weather").getBody().as(weatherLondon.class);
+    	System.out.println(wl.getBase());
+    	System.out.println(wl.getCoord().getLat());
+    	Weather[]arr=wl.getWeather();
+    	System.out.println("array size of whetehre"+ arr.length);
+    	for(int i=0;i<arr.length;i++) {
+    		String id=arr[i].getId();
+    	String desp=	arr[i].getDescription();
+    		System.out.println("id and desp"+id+desp);
+    	}
+    	//another way of doing using objectmapper
+    	String strresp=RestAssured.given().header("Content-Type","appliation/json").accept(ContentType.JSON)
+    	    	.pathParam("id", "2.5").queryParam("q", "London").queryParam("appid", "2b1fd2d7f77ccf1b7de9b441571b39b8")
+    	    	.get("/data/{id}/weather").getBody().asString();
+    	ObjectMapper mapper=new ObjectMapper();
+    	weatherLondon wd=mapper.readValue(strresp, weatherLondon.class);
+    	System.out.println("pressure is"+wd.getMain().getPressure());
+    	
+    	JsonNode jsonnode=mapper.readTree(strresp);
+    	//jsonnode.path(index)
+    	//jsonnode.path(0).get(fieldName)
+    	String visibility=jsonnode.get("visibility").asText();
+    	System.out.println("visblity is"+visibility);
+    	//System.out.println(jsonnode.path(0).get("weather").findValuesAsText("main"));
+    	System.out.println(	jsonnode.get("weather").findValue("id"));
+    	//for array noded
+    	//1st way
+    	JsonNode  jn1=jsonnode.path("weather");
+    	//JsonNode k=jsonnode.get("weather");
+    	Iterator<JsonNode> it1=jn1.elements();
+    	while(it1.hasNext()) {
+    		JsonNode weathers1=it1.next();	
+    		String sw=weathers1.path("id").asText();
+    		System.out.println("id="+sw);
+    	}
+    	//2nd way
+    	ArrayNode anode=(ArrayNode) jsonnode.get("weather");
+    	Iterator<JsonNode>it=anode.elements();
+    	while(it.hasNext()) {
+    		JsonNode jn=it.next();
+    		String idwether=jn.get("id").asText();
+    		String iconwheter=jn.get("icon").asText();
+    		System.out.println(idwether+iconwheter);
+    	}
+    	
+    	
+    	
+    	
+    
+    	
+    	
+    }
 }
 

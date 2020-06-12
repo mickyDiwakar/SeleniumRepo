@@ -2,6 +2,8 @@ package com.mavenproj;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class arrayexpample {
 	
@@ -13,6 +15,13 @@ public class arrayexpample {
 		int k=0;
 		int[] temp =new int[arr.length];
 		Arrays.sort(arr);
+		List<String>l=new ArrayList<String>();
+		l.add("5");
+		l.add("2");
+		Collections.sort(l);
+		for(String i:l) {
+			System.out.println(i);
+		}
 		System.out.println("arrlenth"+arr.length);
 		
 		for (int i=0;i<arr.length-1;i++) {

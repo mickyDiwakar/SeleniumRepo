@@ -4,28 +4,40 @@ import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import pageObjects.newtourSignupPage;
 import pageObjects.userCreation;
 import resources.TestBase;
+import io.cucumber.java.en.And;
 
 
-public class newTour extends TestBase  {
-	//public WebDriver driver;
-	//WebDriver driver;
+
+public class newTour  {
+	
+	private masterHooks mh;
+	WebDriver driver;
 	newtourSignupPage nsp;
 	userCreation usercreat;
+
+	
+	  public newTour(masterHooks mh) { 
+		  this.mh=mh;
+		  driver= mh.getdriver();
+	  }
+	 
+	//public WebDriver driver;
+	
 	
 	 @Given("^Navigate to homepage of newtoursdemoautURl and Click on the register link$")
 	    public void navigate_to_homepage_of_newtoursdemoauturl_and_click_on_the_register_link() throws Throwable {
 		// new newtourSignupPage().naviagtTomercuryTourURL();
 		// new newtourSignupPage(driver).linkclick();
-		 nsp=new newtourSignupPage();
+		//driver=mh.getdriver();
+		
+		 nsp=new newtourSignupPage(driver);
  		 nsp.naviagtTomercuryTourURL();
 		 nsp.linkclick();
 	    }

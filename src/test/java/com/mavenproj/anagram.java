@@ -20,6 +20,7 @@ public class anagram {
 			flag=1;
 		}
 		else {
+			
 			char[] charr1=builder.toString().toCharArray();
 			Arrays.sort(charr1);
 		//	Character.isLowerCase(arg0)
@@ -54,6 +55,11 @@ public class anagram {
 		
 		
 	}
+	static boolean regexforemail(String text) {
+		//+means any number of charfrom the given[a-zAz]
+		String regex="^([a-zA-Z.-_])+@[a-z]+.[a-z]{2,3}$";
+		return Pattern.matches(regex, text);
+	}
 	public static void main(String[] args) {
 		try{
 			anagramcheck("keep","peek");
@@ -64,5 +70,7 @@ public class anagram {
 		swapwithwithtemp("lovely","you");
 		boolean value=regexpfordate("18-10-2009");
 		System.out.println(value);
+		boolean valuemail=regexforemail("micky.diwakar@gmail.com");
+		System.out.println("email"+valuemail);
 	}
 }

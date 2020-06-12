@@ -64,19 +64,19 @@
 		<!-- below two are cucumber depency-->
 		<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-junit -->
 		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
-		<dependency>
-		    <groupId>io.cucumber</groupId>
-		    <artifactId>cucumber-junit</artifactId>
-		    <version>2.3.0</version>
-		    <scope>test</scope>
+<!-- 		<dependency> -->
+<!-- 		    <groupId>io.cucumber</groupId> -->
+<!-- 		    <artifactId>cucumber-junit</artifactId> -->
+<!-- 		    <version>2.3.0</version> -->
+<!-- 		    <scope>test</scope> -->
 		    
-		</dependency>
+<!-- 		</dependency> -->
 				
 		<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-java -->
 		<dependency>
 		      <groupId>io.cucumber</groupId>
 		         <artifactId>cucumber-java</artifactId>
-		      <version>2.3.0</version>
+		      <version>5.2.0</version>
 		      <scope>test</scope>
 		      
 		</dependency>
@@ -94,7 +94,7 @@
 			<dependency>
 				  <groupId>io.cucumber</groupId>
 				  <artifactId>cucumber-testng</artifactId>
-				  <version>2.3.0</version>
+				  <version>5.2.0</version>
 				  <exclusions>
 				  	<exclusion>
           <!-- https://mvnrepository.com/artifact/junit/junit -->
@@ -113,7 +113,7 @@
 <dependency>
     <groupId>io.cucumber</groupId>
     <artifactId>cucumber-picocontainer</artifactId>
-    <version>5.5.0</version>
+    <version>5.2.0</version>
     <scope>test</scope>
 </dependency>
 		
@@ -121,11 +121,17 @@
 		
 <!-- 		https://mvnrepository.com/artifact/info.cukes/cucumber-core -->
 <dependency>
-    <groupId>info.cukes</groupId>
+    <groupId>io.cucumber</groupId>
     <artifactId>cucumber-core</artifactId>
-    <version>1.2.5</version>
+    <version>5.2.0</version> <!-- 1.2.5 -->
 </dependency>
 
+		<!-- https://mvnrepository.com/artifact/io.cucumber/gherkin -->
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>gherkin</artifactId>
+    <version>13.0.0</version>
+</dependency>
 		
 	<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
 	<dependency>
@@ -166,7 +172,7 @@
     <groupId>org.hamcrest</groupId>
     <artifactId>hamcrest-all</artifactId>
     <version>1.3</version>
-    <scope>test</scope>
+    
 </dependency>
 	
   </dependencies>
@@ -175,57 +181,36 @@
     
     <plugins>
     	<!-- excute tec parellel plugins -->
-<!--       <plugin> -->
-<!-- 			 <groupId>com.github.temyers</groupId> -->
-<!-- 			 <artifactId>cucumber-jvm-parallel-plugin</artifactId> -->
-<!-- 			 <version>5.0.0</version> -->
-<!-- 			 <executions> -->
-<!-- 				 <execution> -->
-<!-- 					 <id>generateRunners</id> -->
-<!-- 					 <phase>validate</phase> -->
-<!-- 					 <goals> -->
-<!-- 						 <goal>generateRunners</goal> -->
-<!-- 					 </goals> -->
-<!-- 					 <configuration> -->
-<!-- 						 <glue> -->
-<!-- 						 	<pakage>stepDefinations</pakage> -->
-<!-- 						 </glue> -->
-<!-- 						 <outputDirectory>src\test\java\cucumberoptions</outputDirectory> -->
-<!-- 						 <featuresDirectory>src\test\java</featuresDirectory> -->
-<!-- 						 <cucumberOutputDir>target/cucumber-parallel</cucumberOutputDir> -->
-<!-- 						 <format>json,html</format> -->
-<!-- 						  <strict>true</strict> -->
-<!--                         <monochrome>true</monochrome> -->
-<!--                         <useTestNG>false</useTestNG> -->
-<!--                         <namingScheme>simple</namingScheme> -->
-<!--                         <parallelScheme>FEATURE</parallelScheme> -->
-<!--                         						 <tags> -->
-<!-- 						 	<tag>@E2ETest</tag>  -->
-<!-- 						 	<tag>@travel</tag>  -->
-<!-- 						 </tags> -->
-<!-- 					 </configuration> -->
-<!-- 				 </execution> -->
-<!-- 			 </executions> -->
-<!--  	</plugin> -->
+
 	<plugin>
 	            <groupId>org.apache.maven.plugins</groupId>
 	            <artifactId>maven-surefire-plugin</artifactId>
- 	            <version>2.18</version>
+ 	            <version>3.0.0-M3</version>
  	            
 	            <configuration>
-	            	<testFailureIgnore>true</testFailureIgnore>
+	      
+                    
+	      
+<!--      				<parallel>methods</parallel> -->
+
+<!--                 <threadCount>2</threadCount>  -->
+<!--                 <perCoreThreadCount>false</perCoreThreadCount> -->
+	            	<testFailureIgnore>true</testFailureIgnore> <!-- for cucumber reporting fail tc visile in report -->
 	            	<suiteXmlFiles>
 	            		<suiteXmlFile>${SuitefileName}</suiteXmlFile>
 	            	</suiteXmlFiles>
-<!-- 	            	<forkcount>4 </forkcount> -->
+	            	
+<!-- 	            	<forkcount>2 </forkcount> -->
 <!-- 	            	<reuseForks>true</reuseForks> -->
 <!-- 	            	<includes> -->
-<!-- 	            		<include>C:\selenium\mavenproj\src\test\java\cucumberoptions\TestRunner.class</include> -->
+<!-- 	            		<include>C:\selenium\mavenproj\src\test\java\cucumberoptions\TestRunner.java</include> -->
 	            		
 <!-- 	            	</includes> -->
-            	<!-- <parallel>classes</parallel>
-                <threadCount>3</threadCount>
-                <enableAssertions>true</enableAssertions> -->
+            	
+<!--                <enableAssertions>true</enableAssertions> -->
+<!--                <includes> -->
+<!--                	<include>**/*Runner.java</include> -->
+<!--                </includes>  -->
                 
             </configuration>
         </plugin>
@@ -247,7 +232,7 @@
 							<cucumberOutput>target/cucumber-reports/CucumberTestReport.json</cucumberOutput>
 							<buildNumber>1</buildNumber>
 							<checkBuildResult>true</checkBuildResult>
-							<parallelTesting>false</parallelTesting>
+							<parallelTesting>true</parallelTesting>
 						</configuration>
 					</execution>
 				</executions>
@@ -257,13 +242,16 @@
 	        <artifactId>maven-compiler-plugin</artifactId>
 	        <version>3.8.0</version>
 	        <configuration>
+	        <fork>true</fork>
+	       <executable>C:\Program Files\Java\jdk1.8.0_221\bin\javac.exe</executable>
+	        
 	          <source>1.8</source>
 	          <target>1.8</target>
 	        </configuration>
       </plugin>
-     
-      	
+    
         
+      	
     </plugins>
     
   </build>

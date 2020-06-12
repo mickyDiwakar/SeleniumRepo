@@ -14,10 +14,17 @@ public class CaseCreationpage extends TestBase{
 	WebElement caseno;
 	
 	
+	
+	
+	public WebElement getCaseno() {
+		return caseno;
+	}
+	
 	public CaseCreationpage() {
 		PageFactory.initElements(driver, this);
 	}
 	public void verfiythecasecraeted() {
+		
 		WebDriverWait wait=new WebDriverWait(driver,9);
 		wait.until(ExpectedConditions.visibilityOf(caseno));
 		String casenumberfromcraetion=crmnewTaskPage.casseNo;

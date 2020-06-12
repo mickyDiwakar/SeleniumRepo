@@ -21,3 +21,10 @@ Scenario: rest country
 Given URI is "http://restcountries.eu/rest/v1/name"
 When Check the capital "norway"
 Then print the details in commandline
+
+@restAssuredGet4
+Scenario: get
+Given  url is "http://bookstore.toolsqa.com"
+@restAssuredGet5
+Scenario:
+Given the End point Url is "https://samples.openweathermap.org"

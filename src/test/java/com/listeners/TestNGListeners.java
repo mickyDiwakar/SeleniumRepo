@@ -14,13 +14,13 @@ public class TestNGListeners implements ITestListener{
 	@Override
 	public void onTestStart(ITestResult result) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("test stared............");
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
 		// TODO Auto-generated method stub
-		System.out.println("pass hua");
+		System.out.println("pass hua"+result.getName());
 		
 	}
 
@@ -28,12 +28,12 @@ public class TestNGListeners implements ITestListener{
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
 		try {
-			base.TakesSnapshot("login");
+			base.TakesSnapshot(result.getName().toString());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.getMessage();
 		}
-		System.out.println("tc fail hl");
+		System.out.println("tc fail hl"+result.getName());
 		  
 		//base.TakesSnapshot(driver,result.getName());
 	}
@@ -58,7 +58,7 @@ public class TestNGListeners implements ITestListener{
 
 	@Override
 	public void onFinish(ITestContext context) {
-		// TODO Auto-generated method stub
+		;
 		
 	}
 

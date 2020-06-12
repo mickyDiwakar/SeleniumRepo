@@ -11,11 +11,11 @@ import org.testng.Assert;
 
 //import com.mavenproj.dealcreationClass;
 
-import cucumber.api.DataTable;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import pageObjects.landingpageCrm;
 import pageObjects.loginToCrm;
 import resources.TestBase;
@@ -80,12 +80,12 @@ public void close_browser() throws Throwable {
 
 @When("^User login to crm application with username and password$")
 public void user_login_to_crm_application_with_username_and_password(DataTable dt) throws Throwable {
-	for(Map<String,String> data:dt.asMaps(String.class, String.class)) {
-		String username=data.get("uname");
-		String password= data.get("pwd");
+	for(Map<Object, Object> data:dt.asMaps(String.class, Object.class)) {
+		Object username=data.get("uname");
+		Object password= data.get("pwd");
 		loginToCrm ltc=new loginToCrm();
-		  ltc.getEmail().sendKeys(username);
-		  ltc.getPassword().sendKeys(password);
+		  ltc.getEmail().sendKeys(username.toString());
+		  ltc.getPassword().sendKeys(password.toString());
 		  Thread.sleep(3000);
 		  ltc.getEmail().clear();
 		  Thread.sleep(3000);
@@ -97,7 +97,7 @@ public void user_login_to_crm_application_with_username_and_password(DataTable d
 	
 	@When("^User login to crm application with username1 and password1$")
 	public void user_login_to_crm_application_with_username1_and_password1(DataTable dt) throws Throwable {
-		List<List<String>> data=dt.raw() ;
+		List<List<String>> data=dt.asLists(String.class) ;
 			String username=data.get(1).get(0);
 			String password= data.get(1).get(1);
 			loginToCrm ltc=new loginToCrm();

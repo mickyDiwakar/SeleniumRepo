@@ -1,7 +1,7 @@
 Feature: by using this http://automationpractice.com/index.php
 
 @automationpractice
-Scenario:
+Scenario: verfiythecreationofmember
  
 Given Click on Sign In2 Button
 And Create an account box

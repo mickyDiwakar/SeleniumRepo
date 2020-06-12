@@ -1,5 +1,6 @@
 package pageObjects;
 
+import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.JavascriptExecutor;
@@ -7,13 +8,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import resources.TestBase;
+import utilities.logger;
 
 public class newtourSignupPage extends TestBase {
 	//newtoursdemoautURl
-	
-	//public WebDriver driver;
+	final static Logger log=logger.getLogger(automationpracticePage.class);
+	public WebDriver driver;
 	@FindBy(xpath="//a[text()='REGISTER']")
 	WebElement linkRegister;
 	@FindBy(name="firstName")
@@ -46,18 +51,24 @@ public class newtourSignupPage extends TestBase {
 	WebElement btnSubmit;
 	
 
-	 public newtourSignupPage() {
-		//this.driver=driver;
+	 public newtourSignupPage(WebDriver driver) {
+		this.driver=driver;
 		PageFactory.initElements(driver, this);
 		
 	}
 	 public void naviagtTomercuryTourURL() {
+		 log.info("*****************************newtourstared**************************");
 		driver.get(p.getProperty("newtoursdemoautURl"));
-		 WaitVisibilityOf(linkRegister, 8000);
+		WebDriverWait wait=new WebDriverWait(driver,8000);
+		wait.until(ExpectedConditions.visibilityOf(linkRegister));
+		// WaitVisibilityOf(linkRegister, 8000);
 	 }
 	 public void linkclick() {
 		 linkRegister.click();
-		WaitVisibilityOf(txtFirstName, 8000);
+		 WebDriverWait wait=new WebDriverWait(driver,8000);
+			wait.until(ExpectedConditions.visibilityOf(linkRegister));
+			log.info("**************************linkregisterclicked*******************************");
+		//WaitVisibilityOf(txtFirstName, 8000);
 	 }
 	 public void contactInfo(String FN,String LN,String PH,String Email) {
 		 txtFirstName.sendKeys(FN);
@@ -65,6 +76,7 @@ public class newtourSignupPage extends TestBase {
 		 txtphone.sendKeys(PH);
 		 JavascriptExecutor js=(JavascriptExecutor)driver;
 		 js.executeScript("arguments[0].value='"+Email+"';", txtemail);
+		 log.info("*****************************************username lstname phon email enterd******************************");
 	 }
 	 public void mailingInfo(String ads1, String ads2,String city,String state,String post,String country) {
 		 JavascriptExecutor js=(JavascriptExecutor)driver;
@@ -87,7 +99,8 @@ public class newtourSignupPage extends TestBase {
 	 }
 	 public userCreation clickSubmitButton() {
 		 btnSubmit.click();
-		return new userCreation() ;
+		 log.info("***************************butn submit clicked******************");
+		return new userCreation(driver) ;
 	 }
  
 }

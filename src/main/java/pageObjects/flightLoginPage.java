@@ -27,7 +27,7 @@ public class flightLoginPage extends TestBase {
 	}
 	public void clickOnLogin() {
 		clickOnElement(iconLogin);
-		WaitVisibilityOf(txtEmail, 10000);
+		//WaitVisibilityOf(txtEmail, 10000);
 	}
 	public void enterEmailId(String emailid) {
 		txtEmail.sendKeys(emailid);
@@ -37,7 +37,7 @@ public class flightLoginPage extends TestBase {
 	}
 	public void clickLoginButton() {
 		btnLogin.click();
-		WaitVisibilityOf(errorMessage, 3000);
+		//WaitVisibilityOf(errorMessage, 3000);
 	}
 	public void errorMessageforLoginFail() {
 		//#e10000

@@ -1,29 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Practice automation Suite" data-provider-thread-count="2" parallel="classes">
-  <test  name="All Test">
-  
+<suite name="Suiteparctice" parallel="tests" data-provider-thread-count="2" >
+ <listeners>
+		<listener class-name="com.listeners.TestNGListeners"></listener>
+	</listeners>
+  <test  name="Test chrome" > 
+ <parameter name="browser" value="chrome"></parameter>
     <classes>
       <class name="cucumberoptions.TestRunner"/>
-      
+        
     </classes>
-  </test>
-  
  
-  
-  <!-- <test name="WIN10TEST_FF">
-        <parameter name="browser" value="firefox" />
+  </test> <!-- Test -->
+  <test  name="Test chrome1" > 
+ <parameter name="browser" value="chrome"></parameter>
+    <classes>
+      <class name="cucumberoptions.TestRunner"/>
         
-        <classes>
-            <class name="cucumberoptions.TestRunner" />
-        </classes>
-    </test>
+    </classes>
  
-    <test name="WIN10TEST_CHROME">
-        <parameter name="browser" value="chrome" />
-        
-        <classes>
-            <class name="cucumberoptions.TestRunner" />
-        </classes>
-    </test> -->
+  </test> <!-- Test -->
+  
 </suite> <!-- Suite -->
+<!--  
+<suite name="Suite" parallel="tests">
+ 
+ <test name="FirefoxTest">
+ 
+ <parameter name="browser" value="firefox" />
+ 
+ <classes>
+ 
+ <class name="automationFramework.MultiBrowser" />
+ 
+ </classes>
+ 
+ </test>
+ 
+ <test name="IETest">
+ 
+ <parameter name="browser" value="ie" />
+ 
+ <classes>
+ 
+ <class name="automationFramework.MultiBrowser" />
+ 
+ </classes>
+ 
+ </test>
+ 
+</suite>
+-->

@@ -14,7 +14,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import cucumber.api.DataTable;
+import io.cucumber.datatable.DataTable;
+
+//import cucumber.api.DataTable;
 import org.junit.Assert;
 import resources.TestBase;
 
@@ -69,7 +71,7 @@ public class tasks extends TestBase{
 		Title.sendKeys(map.get(0).get("Title"));
 	}
 	public void DDautoExtend(DataTable dt) {
-		List<List<String>> list=dt.raw();
+		List<List<String>> list=dt.asLists(String.class);
 		Select s=new Select(autoExtend);
 		s.selectByVisibleText(list.get(1).get(1));
 	}
@@ -79,7 +81,7 @@ public class tasks extends TestBase{
 		Statusdd.selectByVisibleText(l.get(1).get(2));
 	}
 	public void txtCompletion(DataTable dt) {
-		List<List<String>> list=dt.raw();
+		List<List<String>> list=dt.asLists(String.class);
 		
 		Completion.sendKeys(list.get(1).get(3));
 	}

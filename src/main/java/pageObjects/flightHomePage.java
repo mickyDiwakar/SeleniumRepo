@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -44,7 +45,7 @@ public class flightHomePage extends TestBase {
 	public void getflightUrl() throws IOException {
 
 		driver.get(p.getProperty("flightUrl"));
-		WaitVisibilityOf(btnSearch, 2000);
+		//WaitVisibilityOf(btnSearch, 2000);
 
 	}
 // verfiy the title of page
@@ -64,6 +65,7 @@ public class flightHomePage extends TestBase {
 	//click on flight tab
 	public void ClickonFlighttab() {
 		clickOnElement(tabFlight);
+		
 	}
 	//select from origin airport
 	public void fromDropdown(String origin) throws InterruptedException {
@@ -101,7 +103,7 @@ public class flightHomePage extends TestBase {
 	}
 	public void verificationofpage() {
 		try {
-		WaitVisibilityOf(btnContinue, 5000);
+		//WaitVisibilityOf(btnContinue, 5000);
 		Assert.assertTrue(btnContinue.isDisplayed());	
 			
 		}catch(Exception e){

@@ -1,4 +1,5 @@
 package com.mavenproj;
+//emnum is a dataType
 //enum can be inside a class but not inisde a metd
 //values() give the value of enum  //return arrary
 //ordinal() gve index of value of enum / return int
@@ -30,6 +31,7 @@ public class enumclass {
 	
 	
 	public static void main(String[] args) {
+		
 		Days d=Days.Monday;
 		System.out.println(d); //monday
 		

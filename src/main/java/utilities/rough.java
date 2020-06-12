@@ -17,8 +17,17 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 public class rough {
+	static int c=0;
+	rough(){
+		c++;
+	}
+	
+
 
 	public static void main(String[] args) throws IOException {
+		rough r1=new rough();
+		rough r2=new rough();
+		System.out.println("c="+r2.c);
 		// TODO Auto-generated method stub
 		/*
 		 * String strDateFormat = "d/M/yyy"; SimpleDateFormat sdf = new
