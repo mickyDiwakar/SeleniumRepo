@@ -70,7 +70,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 	  
 	  }
 	  
-	  @DataProvider(parallel=false) public Object[][] features(){ return
+	  @DataProvider(parallel=true) public Object[][] features(){ return
 	  testNGcucumberRuner.provideScenarios(); }
 	  
 	  

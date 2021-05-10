@@ -162,7 +162,7 @@ final static Logger log=logger.getLogger(automationpracticePage.class);
 			selday.selectByValue(date);
 			Select selmon=new Select(selMonth);
 			selmon.selectByValue(month);
-			
+			 
 			Select selyr=new Select(selYear);
 			selyr.selectByValue(year);
 			//List<WebElement> l=checkbox;

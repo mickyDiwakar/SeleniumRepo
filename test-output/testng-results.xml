@@ -1,102 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="2" total="5" passed="2">
+<testng-results skipped="0" failed="0" ignored="2" total="2" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Failed suite [Suiteparctice]" duration-ms="34899" started-at="2020-06-11T02:04:00Z" finished-at="2020-06-11T02:04:35Z">
+  <suite name="Default suite" duration-ms="27" started-at="2021-05-03T22:38:29Z" finished-at="2021-05-03T22:38:29Z">
     <groups>
     </groups>
-    <test name="Test chrome(failed)" duration-ms="23480" started-at="2020-06-11T02:04:00Z" finished-at="2020-06-11T02:04:23Z">
-      <class name="cucumberoptions.TestRunner">
-        <test-method status="PASS" signature="setUpClass()[pri:0, instance:cucumberoptions.TestRunner@551aa95a]" name="setUpClass" is-config="true" duration-ms="512" started-at="2020-06-11T02:04:00Z" finished-at="2020-06-11T02:04:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpClass -->
-        <test-method status="FAIL" signature="feature(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberoptions.TestRunner@551aa95a]" name="feature" duration-ms="22027" started-at="2020-06-11T02:04:01Z" data-provider="features" finished-at="2020-06-11T02:04:23Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[""]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["newtour member craetion"]]>
-              </value>
-            </param>
-          </params>
-          <exception class="junit.framework.AssertionFailedError">
-            <full-stacktrace>
-              <![CDATA[junit.framework.AssertionFailedError
-at junit.framework.Assert.fail(Assert.java:48)
-at junit.framework.Assert.assertTrue(Assert.java:20)
-at junit.framework.Assert.assertFalse(Assert.java:34)
-at junit.framework.Assert.assertFalse(Assert.java:41)
-at pageObjects.userCreation.verfiytheUserCreation(userCreation.java:43)
-at stepDefinations.newTour.user_created(newTour.java:74)
-at ✽.User created"mercury3"(file:///C:/selenium/mavenproj/src/test/java/features/newtoursAssignment.feature:11)
-]]>
-            </full-stacktrace>
-          </exception> <!-- junit.framework.AssertionFailedError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- feature -->
-        <test-method status="PASS" signature="teardownClass()[pri:0, instance:cucumberoptions.TestRunner@551aa95a]" name="teardownClass" is-config="true" duration-ms="396" started-at="2020-06-11T02:04:23Z" finished-at="2020-06-11T02:04:23Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardownClass -->
-        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:cucumberoptions.TestRunner@551aa95a]" name="tearDownClass" is-config="true" duration-ms="0" started-at="2020-06-11T02:04:23Z" finished-at="2020-06-11T02:04:23Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDownClass -->
-      </class> <!-- cucumberoptions.TestRunner -->
-    </test> <!-- Test chrome(failed) -->
-    <test name="Test chrome1(failed)" duration-ms="34899" started-at="2020-06-11T02:04:00Z" finished-at="2020-06-11T02:04:35Z">
-      <class name="cucumberoptions.TestRunner">
-        <test-method status="PASS" signature="setUpClass()[pri:0, instance:cucumberoptions.TestRunner@6f1fba17]" name="setUpClass" is-config="true" duration-ms="512" started-at="2020-06-11T02:04:00Z" finished-at="2020-06-11T02:04:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpClass -->
-        <test-method status="PASS" signature="feature(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberoptions.TestRunner@6f1fba17]" name="feature" duration-ms="18523" started-at="2020-06-11T02:04:01Z" data-provider="features" finished-at="2020-06-11T02:04:20Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[""]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["newtour member craetion"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- feature -->
-        <test-method status="PASS" signature="feature(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberoptions.TestRunner@6f1fba17]" name="feature" duration-ms="15041" started-at="2020-06-11T02:04:20Z" data-provider="features" finished-at="2020-06-11T02:04:35Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[""]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["newtour member craetion"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- feature -->
-        <test-method status="PASS" signature="teardownClass()[pri:0, instance:cucumberoptions.TestRunner@6f1fba17]" name="teardownClass" is-config="true" duration-ms="278" started-at="2020-06-11T02:04:35Z" finished-at="2020-06-11T02:04:35Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardownClass -->
-        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:cucumberoptions.TestRunner@6f1fba17]" name="tearDownClass" is-config="true" duration-ms="1" started-at="2020-06-11T02:04:35Z" finished-at="2020-06-11T02:04:35Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDownClass -->
-      </class> <!-- cucumberoptions.TestRunner -->
-    </test> <!-- Test chrome1(failed) -->
-  </suite> <!-- Failed suite [Suiteparctice] -->
+    <test name="Default test" duration-ms="27" started-at="2021-05-03T22:38:29Z" finished-at="2021-05-03T22:38:29Z">
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

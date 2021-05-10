@@ -3,7 +3,9 @@ package com.mavenproj;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class arrayexpample {
 	
@@ -47,6 +49,23 @@ public class arrayexpample {
 			//System.out.println(arr.length);
 			System.out.println(arr[i]);
 		}
+		Arrays.sort(arr);
+		int flag;
+		List<Integer> list=new ArrayList<Integer>();
+		for(int i=0;i<arr.length-1;i++) {
+			flag=0;
+			if(arr[i]==arr[i+1]) {
+				flag=1;
+			}else if(flag!=1){
+				
+				list.add(arr[i]);
+				
+			}
+		}
+		for(Integer i:list) {
+			System.out.println(i);
+		}
+		
 		String s="india is my country";
 		System.out.println(s.contains("c"));
 		System.out.println(s.substring(1,3));
@@ -55,6 +74,7 @@ public class arrayexpample {
 		System.out.println(s.compareToIgnoreCase("country"));
 		System.out.println(s.compareTo("india is my country1212"));
 		System.out.println(s.indexOf("i"));
+		
 		System.out.println(s.replaceFirst("i", "I"));
 		char[] cchar=s.toCharArray();
 		String tempstr = "";

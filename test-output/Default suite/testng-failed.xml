@@ -3,14 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="cucumberoptions.TestRunner">
+      <class name="com.mavenproj.authenticationAndauthorization">
         <methods>
-          <include name="teardownClass"/>
-          <include name="feature" invocation-numbers="9 6 7 1 4 2 8 3 5 0"/>
-          <include name="setUpClass"/>
-          <include name="tearDownClass"/>
+          <include name="getbooks"/>
         </methods>
-      </class> <!-- cucumberoptions.TestRunner -->
+      </class> <!-- com.mavenproj.authenticationAndauthorization -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

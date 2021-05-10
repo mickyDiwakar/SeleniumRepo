@@ -18,6 +18,7 @@ import utilities.logger;
 public class newtourSignupPage extends TestBase {
 	//newtoursdemoautURl
 	final static Logger log=logger.getLogger(automationpracticePage.class);
+	static int x=5;
 	public WebDriver driver;
 	@FindBy(xpath="//a[text()='REGISTER']")
 	WebElement linkRegister;
@@ -95,7 +96,9 @@ public class newtourSignupPage extends TestBase {
 		 txtUserName.sendKeys(UserName);
 		 txtPassword.sendKeys(Password);
 		 txtconfirmPassword.sendKeys(ConfirmPassword);
+		 System.out.println("x is "+x);
 		 return val;
+		 
 	 }
 	 public userCreation clickSubmitButton() {
 		 btnSubmit.click();

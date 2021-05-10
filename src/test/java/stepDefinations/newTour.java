@@ -21,12 +21,14 @@ public class newTour  {
 	WebDriver driver;
 	newtourSignupPage nsp;
 	userCreation usercreat;
-
 	
-	  public newTour(masterHooks mh) { 
-		  this.mh=mh;
-		  driver= mh.getdriver();
+	
+	
+	  public newTour(masterHooks mh) 
+	  { this.mh=mh; 
+	  driver= mh.getdriver(); 
 	  }
+	 
 	 
 	//public WebDriver driver;
 	

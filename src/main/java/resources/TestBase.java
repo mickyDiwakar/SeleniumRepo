@@ -38,7 +38,8 @@ public class TestBase {
 	
 	public WebDriver initializeDriver() throws IOException {
 		
-		  p = new Properties(); FileInputStream fis = new FileInputStream(  "C:\\selenium\\mavenproj\\src\\main\\java\\resources\\data.properties");
+		  p = new Properties(); 
+		  FileInputStream fis = new FileInputStream(  "C:\\selenium\\mavenproj\\src\\main\\java\\resources\\data.properties");
 		  p.load(fis); 
 		  String browser = p.getProperty("browser");
 		 
@@ -47,15 +48,18 @@ public class TestBase {
 		switch (browser.toLowerCase()) {
 			case "chrome":
 			
-			  System.setProperty("webdriver.chrome.driver", constant.CHROMEDRIVERPATH);
-			  driver = new ChromeDriver();
 			/*
-			 * DesiredCapabilities cap=new DesiredCapabilities();
-			 * cap.setBrowserName("chrome"); cap.setPlatform(Platform.ANY); ChromeOptions
-			 * coption=new ChromeOptions(); coption.merge(cap); String
-			 * huburl="http://192.168.43.118:4444/wd/hub"; driver=new RemoteWebDriver(new
-			 * URL(huburl),coption);
+			 * System.setProperty("webdriver.chrome.driver", constant.CHROMEDRIVERPATH);
+			 * driver = new ChromeDriver();
 			 */
+			
+			
+			  DesiredCapabilities cap=new DesiredCapabilities();
+			  cap.setBrowserName("chrome"); cap.setPlatform(Platform.ANY); ChromeOptions
+			  coption=new ChromeOptions(); coption.merge(cap); String
+			  huburl="http://192.168.43.118:4444/wd/hub"; driver=new RemoteWebDriver(new
+			  URL(huburl),coption);
+			 
 							
 				break;
 			case "firefox":
@@ -70,6 +74,8 @@ public class TestBase {
 				System.setProperty("webdriver.ie.driver", constant.IEDRIVERPATH);
 				driver = new InternetExplorerDriver();
 				break;
+			
+				
 						
 		}
 		driver.manage().timeouts().implicitlyWait(constant.IMPLICIT_WAIT, TimeUnit.SECONDS);// wait for 40 sec before loading fail of

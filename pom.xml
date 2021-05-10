@@ -14,8 +14,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
    <maven.compiler.target>1.8</maven.compiler.target>
-  
-   
+   <org.testng.version>6.14.2</org.testng.version>
+      
   </properties>
   
 
@@ -38,7 +38,7 @@
 		<dependency>
 			<groupId>org.testng</groupId>
 			  <artifactId>testng</artifactId>
-			  <version>6.14.2</version>
+			  <version>${org.testng.version}</version>
 			  <scope>test</scope>
 		</dependency>
     	<!-- https://mvnrepository.com/artifact/log4j/log4j -->

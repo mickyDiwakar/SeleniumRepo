@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Failed suite [Suiteparctice]]" parallel="tests" data-provider-thread-count="2">
-  <listeners>
-    <listener class-name="com.listeners.TestNGListeners"/>
-  </listeners>
-  <test thread-count="5" name="Test chrome(failed)(failed)" parallel="tests">
-    <parameter name="browser" value="chrome"/>
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="cucumberoptions.TestRunner">
+      <class name="com.mavenproj.authenticationAndauthorization">
         <methods>
-          <include name="teardownClass"/>
-          <include name="feature" invocation-numbers="2"/>
-          <include name="setUpClass"/>
-          <include name="tearDownClass"/>
+          <include name="getbooks"/>
         </methods>
-      </class> <!-- cucumberoptions.TestRunner -->
+      </class> <!-- com.mavenproj.authenticationAndauthorization -->
     </classes>
-  </test> <!-- Test chrome(failed)(failed) -->
-</suite> <!-- Failed suite [Failed suite [Suiteparctice]] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

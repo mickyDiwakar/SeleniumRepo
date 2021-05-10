@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.FindBy;
 
 import org.openqa.selenium.support.PageFactory;
@@ -143,7 +144,8 @@ public class hotelBookingAirAsia {
 		String expectedStr="We're unable to locate your flight booking. You can only search for bookings made with AirAsia or other online travel websites.";
 		//Assert.assertEqual(message, condition);
 		Assert.assertEquals("check error message", expectedStr, str);
-		String actualcolor=errormessage.getCssValue("color");
+		
+		String actualcolor=Color.fromString(errormessage.getCssValue("color")).asHex();
 		String expectedcolor="#d00";
 		if(actualcolor.equalsIgnoreCase(expectedcolor)) {
 			Assert.assertTrue(true);

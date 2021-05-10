@@ -1,4 +1,4 @@
-package stepDefinations;
+ package stepDefinations;
 
 import java.awt.print.Book;
 import java.util.Arrays;
@@ -19,6 +19,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
+import io.cucumber.core.gherkin.vintage.internal.gherkin.deps.com.google.gson.JsonObject;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -90,6 +91,8 @@ public class restAssuredStepdefPOst {
 
 	@When("^check the response body message \"([^\"]*)\"$")
 	public void check_the_response_body_message(String arg1) throws Exception {
+		
+		
 		System.out.println(resp.getBody().asString());
 		String s = (resp.getBody().jsonPath().get("SuccessCode"));
 		Assert.assertEquals(s, arg1, "correct message return");
@@ -119,6 +122,7 @@ public class restAssuredStepdefPOst {
 	@When("^Enter \"([^\"]*)\" and \"([^\"]*)\" to login an application$")
 	public void enter_and_to_login_an_application(String arg1, String arg2) throws Exception {
 		resp = request.auth().basic(arg1, arg2).get("/CheckForAuthentication");
+		//this is the way o write for premetive-request.auth().preemptive().basic(username, password).get();
 		System.out.println("response=" + resp.getBody().asString());
 	}
 
@@ -199,6 +203,8 @@ public class restAssuredStepdefPOst {
 			}
 			// or 2nd weay
 			JsonNode jnbook = jnode.path("books");
+			System.out.println(jnbook.size()+"size of the book");
+			
 			Iterator<JsonNode> jn = jnbook.elements();
 			while (jn.hasNext()) {
 				JsonNode node = jn.next();

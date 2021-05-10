@@ -54,6 +54,7 @@ public class masterHooks extends TestBase  {
 			  driver).getScreenshotAs(OutputType.BYTES); scenario.embed(screenshot,
 			  "image/png", scenario.getName());
 			  
+			  
 			  }
 			 
 		  if (driver!=null) {
@@ -106,6 +107,7 @@ public class masterHooks extends TestBase  {
 			public void setUpCrm() throws IOException {
 				//driver = initializeDriver();
 				driver = new TestBase().initializeDriver();
+				
 				
 			}
 			@After ("@E2ETest")

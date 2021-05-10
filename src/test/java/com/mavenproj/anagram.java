@@ -24,6 +24,9 @@ public class anagram {
 			char[] charr1=builder.toString().toCharArray();
 			Arrays.sort(charr1);
 		//	Character.isLowerCase(arg0)
+			//Character.toString(c)
+			//String.valueOf(arg0)
+			
 			for(int i=0;i<charr1.length;i++) {
 				if(!buffer.toString().contains(String.valueOf(charr1[i]))) {
 					flag=1;
@@ -41,7 +44,7 @@ public class anagram {
 	String b=s2; //you
 	
 	a=a+" "+b; //lovely you
-	b=a.substring(0, a.length()-b.length());  //you
+	b=a.substring(0, a.length()-b.length());  //lovely
 	System.out.println(b.length());
 	a=a.substring(b.length());
 			System.out.println(a+b);

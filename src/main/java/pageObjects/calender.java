@@ -57,7 +57,7 @@ public class calender {
 		
 		List<WebElement> row = driver
 				.findElements(By.xpath("//tbody/tr/td[text()='Time']/parent::tr/following-sibling::tr"));
-		WebDriverWait wait=new WebDriverWait(driver,5000);
+		WebDriverWait wait=new WebDriverWait(driver,5);
 		wait.until(ExpectedConditions.visibilityOfAllElements(row));
 		
 

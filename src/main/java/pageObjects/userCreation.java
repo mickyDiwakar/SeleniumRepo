@@ -34,8 +34,10 @@ public class userCreation extends TestBase {
 			 wait.until(ExpectedConditions.visibilityOf(messageForMemebrcraetion));
 			 //WaitVisibilityOf(messageForMemebrcraetion, 8000);
 			String str=messageForMemebrcraetion.getText();
+	
 			 if (str.contains(UserName)) {
 				 Assert.assertTrue(true);
+				 System.out.println("x value in other page="+newtourSignupPage.x);
 				log.info("********************memeber creaated*****************");
 			 }
 		} catch (Exception e) {

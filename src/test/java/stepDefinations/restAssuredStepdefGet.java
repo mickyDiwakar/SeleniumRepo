@@ -227,7 +227,7 @@ for(Book b:bokk) {
     	.pathParam("id", "2.5").queryParam("q", "London").queryParam("appid", "2b1fd2d7f77ccf1b7de9b441571b39b8")
     	.get("/data/{id}/weather");
     	//response.getBody().jsonPath()
-    
+    //response.then().log().all();// this will log all about response
     	String s=response.getBody().asString();
     	System.out.println(s);
     	//fetching this kind of  {"coord": {
@@ -243,6 +243,8 @@ for(Book b:bokk) {
 		 * "description": "light intensity drizzle", "icon": "09d" } ],
 		 */
     	List<Map<String,Object>>wherther=response.jsonPath().get("weather");
+    	//response.getBody().jsonpath
+    	wherther.size();
     	System.out.println(wherther.get(0).get("id"));
     	//Now using pojo same issue trying to fix
     	
@@ -264,9 +266,12 @@ for(Book b:bokk) {
     	    	.get("/data/{id}/weather").getBody().asString();
     	ObjectMapper mapper=new ObjectMapper();
     	weatherLondon wd=mapper.readValue(strresp, weatherLondon.class);
+    	   	
     	System.out.println("pressure is"+wd.getMain().getPressure());
     	
     	JsonNode jsonnode=mapper.readTree(strresp);
+    	jsonnode.size();
+    	
     	//jsonnode.path(index)
     	//jsonnode.path(0).get(fieldName)
     	String visibility=jsonnode.get("visibility").asText();
@@ -275,7 +280,8 @@ for(Book b:bokk) {
     	System.out.println(	jsonnode.get("weather").findValue("id"));
     	//for array noded
     	//1st way
-    	JsonNode  jn1=jsonnode.path("weather");
+    	
+    	JsonNode  jn1=jsonnode.path("weather");//jsonnode.get() also do same thing
     	//JsonNode k=jsonnode.get("weather");
     	Iterator<JsonNode> it1=jn1.elements();
     	while(it1.hasNext()) {

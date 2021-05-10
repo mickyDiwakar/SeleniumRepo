@@ -84,6 +84,8 @@ public class MAPs {
 		TreeMap<String,String>tm=new TreeMap<String,String>();
 		//tm.put(null, "ram"); tree map caanot take null key
 		tm.putAll(m);
+		
+		
 	
 		for(String s2:lmap.keySet()) {
 			System.out.println(s2);

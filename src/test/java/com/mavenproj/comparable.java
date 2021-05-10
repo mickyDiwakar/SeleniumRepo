@@ -45,7 +45,10 @@ class Student implements Comparable<Student>{
 		}else {
 			return -1;
 		}
+		/*public int compareTo(Student st) {
 			
+		return name.compareTo(st.name);
+	}*/
 	}
 class sortbyroll  implements Comparator<Student>{
 

@@ -33,13 +33,15 @@ public class fso {
 		System.out.println(arr.length-1);
 		
 		//===========================================================
-		String Str2="";
+		//String Str2="";
+		StringBuilder Str2=new StringBuilder();
 		Map<String,Integer> wordcount=new HashMap<String,Integer>();
 		try {
 			BufferedReader reader=new BufferedReader(new FileReader(str));
 			String str2="";
 			while((str2=reader.readLine())!=null) {
-				Str2=Str2+str2+" ";
+				Str2.append(str2+" ");
+				//Str2=Str2+str2+" ";
 				
 			}
 		} catch (FileNotFoundException e) {
@@ -50,7 +52,7 @@ public class fso {
 			e.printStackTrace();
 		}
 		System.out.println(Str2);
-		String[] arr1=Str2.split(" ");
+		String[] arr1=Str2.toString().split(" ");
 		//int i=arr1.length;
 		//System.out.println(i);
 		for(int i=0;i<arr1.length;i++) {
@@ -74,6 +76,7 @@ public class fso {
 		String s="";
 		while((i=readchar.read())!=-1) {
 			s=s+(char)i;
+			
 			
 		}
 		System.out.println("the string is"+s);
