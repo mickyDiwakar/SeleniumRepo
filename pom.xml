@@ -14,7 +14,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
    <maven.compiler.target>1.8</maven.compiler.target>
-   <org.testng.version>6.14.2</org.testng.version>
+   <org.testng.version>7.7.0</org.testng.version>
       
   </properties>
   
